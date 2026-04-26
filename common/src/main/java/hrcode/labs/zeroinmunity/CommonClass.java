@@ -1,6 +1,6 @@
-package com.example.examplemod;
+package hrcode.labs.zeroinmunity;
 
-import com.example.examplemod.platform.Services;
+import hrcode.labs.zeroinmunity.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
 

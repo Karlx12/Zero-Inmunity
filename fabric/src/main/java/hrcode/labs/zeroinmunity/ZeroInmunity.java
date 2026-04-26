@@ -1,8 +1,8 @@
-package com.example.examplemod;
+package hrcode.labs.zeroinmunity;
 
 import net.fabricmc.api.ModInitializer;
 
-public class ExampleMod implements ModInitializer {
+public class ZeroInmunity implements ModInitializer {
     
     @Override
     public void onInitialize() {
