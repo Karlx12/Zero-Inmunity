@@ -1,5 +1,6 @@
 package hrcode.labs.zeroinmunity;
 
+import hrcode.labs.zeroinmunity.config.Config;
 import hrcode.labs.zeroinmunity.logic.DamageImmunityHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
@@ -15,6 +16,7 @@ public class ZeroInmunity implements ModInitializer {
 
         // Use Fabric to bootstrap the Common mod.
         Constants.LOG.info("Hello Fabric world!");
+        Config.init();
         CommonClass.init();
         ServerLivingEntityEvents.ALLOW_DAMAGE.register((entity, source, amount) -> {
             if (amount <= 0.0f) {

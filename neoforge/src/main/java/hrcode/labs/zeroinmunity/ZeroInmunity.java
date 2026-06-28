@@ -2,6 +2,7 @@ package hrcode.labs.zeroinmunity;
 
 
 import com.iamkaf.konfig.neoforge.api.v1.KonfigNeoForgeClientScreens;
+import hrcode.labs.zeroinmunity.config.Config;
 import hrcode.labs.zeroinmunity.logic.DamageImmunityHandler;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -20,6 +21,7 @@ public class ZeroInmunity {
 
         // Use NeoForge to bootstrap the Common mod.
         Constants.LOG.info("Hello NeoForge world!");
+        Config.init();
         CommonClass.init();
         KonfigNeoForgeClientScreens.register(modContainer,Constants.MOD_ID);
         NeoForge.EVENT_BUS.addListener(ZeroInmunity::onIncomingDamage);
