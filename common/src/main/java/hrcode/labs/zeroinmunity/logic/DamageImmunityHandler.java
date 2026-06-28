@@ -20,9 +20,10 @@ public class DamageImmunityHandler {
     /**    * Determines if the invulnerability period should be applied based on the damage source and entity type.     * @param victim The entity that was damaged     * @param source The source of the damage     * @return true if the invulnerability period should be applied, false otherwise     */
     private static boolean shouldApplyOverride(LivingEntity victim, DamageSource source) {
         if (victim.level().isClientSide()) return false;
-
+        /* Check if its turn off the options of need to affect Players and Mobs*/
         if (victim instanceof Player && !Config.affectPlayers()) return false;
-        if (victim instanceof net.minecraft.world.entity.Mob && !Config.affectMobs()) return false;
+        if (victim instanceof Mob && !Config.affectMobs()) return false;
+
         Entity attacker = source.getEntity();
         Entity directEntity = source.getDirectEntity();
         return attacker instanceof Player
