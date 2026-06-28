@@ -11,13 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 
 public class DamageImmunityHandler {
-    public static void handleInmunityPeriod(LivingEntity entity, DamageSource source) {
-        if (shouldApplyInmunity(entity, source)) {
+    /**     * Processes the invulnerability period for a damaged entity.     * @param entity The entity that was damaged     * @param source The source of the damage     */
+    public static void overrideInvulnerabilityTime(LivingEntity entity, DamageSource source) {
+        if (shouldApplyOverride(entity, source)) {
             entity.invulnerableTime = Config.invulnerabilityTicks();
         }
     }
-
-    private static boolean shouldApplyInmunity(LivingEntity victim, DamageSource source) {
+    /**    * Determines if the invulnerability period should be applied based on the damage source and entity type.     * @param victim The entity that was damaged     * @param source The source of the damage     * @return true if the invulnerability period should be applied, false otherwise     */
+    private static boolean shouldApplyOverride(LivingEntity victim, DamageSource source) {
         if (victim.level().isClientSide()) return false;
 
         if (victim instanceof Player && !Config.affectPlayers()) return false;
