@@ -7,9 +7,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.entity.monster.breeze.Breeze;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 
+/** * Handles damage immunity periods for entities. */
 public class DamageImmunityHandler {
     /**     * Processes the invulnerability period for a damaged entity.     * @param entity The entity that was damaged     * @param source The source of the damage     */
     public static void overrideInvulnerabilityTime(LivingEntity entity, DamageSource source) {
@@ -30,6 +32,8 @@ public class DamageImmunityHandler {
                 || attacker instanceof Mob
                 || directEntity instanceof Projectile
                 || directEntity instanceof PrimedTnt
-                || source.is(DamageTypeTags.IS_EXPLOSION);
+                || source.is(DamageTypeTags.IS_EXPLOSION)
+                || source.is(DamageTypeTags.IS_FALL)
+                || source.is(DamageTypeTags.IS_DROWNING);
     }
 }
