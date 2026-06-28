@@ -27,6 +27,6 @@ public class ZeroInmunity {
         NeoForge.EVENT_BUS.addListener(ZeroInmunity::onIncomingDamage);
     }
     private static void onIncomingDamage(LivingIncomingDamageEvent event) {
-        DamageImmunityHandler.handleInmunityPeriod(event.getEntity(), event.getSource());
+        DamageImmunityHandler.overrideInvulnerabilityTime(event.getEntity(), event.getSource());
     }
 }

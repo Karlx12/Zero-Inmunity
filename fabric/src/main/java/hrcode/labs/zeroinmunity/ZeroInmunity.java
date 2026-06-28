@@ -22,7 +22,7 @@ public class ZeroInmunity implements ModInitializer {
             if (amount <= 0.0f) {
                 return true;
             }
-            DamageImmunityHandler.handleInmunityPeriod(entity, source);
+            DamageImmunityHandler.overrideInvulnerabilityTime(entity, source);
             return true;
         });
 
